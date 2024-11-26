@@ -53,7 +53,7 @@ def roman_to_int(s)
   ret_val
 end
 
-puts "MCMXCIV = #{roman_to_int "MCMXCIV"}"
+puts "IVV = #{roman_to_int "IVV"}"
 
 
 
