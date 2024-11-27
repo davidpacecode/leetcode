@@ -15,23 +15,27 @@ def int_to_roman(num)
   ret_val = ""
 
   while num > 0
-    puts "num is #{num} num.to_s[0] is #{num.to_s[0]}"
-    if num.to_s[0] == '4' || num.to_s[0] == '9'
+    if num.to_s[0] == '4'
       if num < 10
-        ret_val.concat("IV") if num.to_s[0] == '4'
-        ret_val.concat("IX") if num.to_s[0] == '9'
-        num -= 4 if num.to_s[0] == '4'
-        num -= 9 if num.to_s[0] == '9'
+        ret_val.concat("IV")
+        num -= 4
       elsif num < 100
-        ret_val.concat("XL") if num.to_s[0] == '4'
-        ret_val.concat("XC") if num.to_s[0] == '9'
-        num -= 40 if num.to_s[0] == '4'
-        num -= 90 if num.to_s[0] == '9'
+        ret_val.concat("XL")
+        num -= 40
       else
-        ret_val.concat("CD") if num.to_s[0] == '4'
-        ret_val.concat("CM") if num.to_s[0] == '9'
-        num -= 400 if num.to_s[0] == '4'
-        num -= 900 if num.to_s[0] == '9'
+        ret_val.concat("CD")
+        num -= 400
+      end
+    elsif num.to_s[0] == '9'
+      if num < 10
+        ret_val.concat("IX")
+        num -= 9
+      elsif num < 100
+        ret_val.concat("XC")
+        num -= 90
+      else
+        ret_val.concat("CM")
+        num -= 900
       end
     else
       roman.to_a.reverse_each do |key, value|
@@ -42,7 +46,6 @@ def int_to_roman(num)
         end
       end
     end
-    puts "end of while num is #{num} num.to_s[0] is #{num.to_s[0]}"
   end
   ret_val
 end
