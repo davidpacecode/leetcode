@@ -8,17 +8,6 @@ class ListNode
   end
 end
 
-# while l1 != nil
-#   puts "#{l1.val}"
-#   l1 = l1.next
-# end
-# 
-# while l2 != nil
-#   puts "#{l2.val}"
-#   l2 = l2.next
-# end
-
-
 def add_two_numbers(l1, l2)
 
   num1 = l1.val.to_s
@@ -28,21 +17,13 @@ def add_two_numbers(l1, l2)
     num1.concat(l1.next.val.to_s)
     l1 = l1.next
   end
-  puts "#{num1}"
 
   while l2.next != nil
     num2.concat(l2.next.val.to_s)
     l2 = l2.next
   end
-  puts "#{num2}"
 
-  sum = num1.to_i + num2.to_i
-
-  sum.to_s.chars.reverse.each do |c|
-    print c
-  end
-
-  sum.to_s.chars.reverse.map(&:to_i)
+  sum = (num1.reverse.to_i + num2.reverse.to_i).to_s.chars.reverse.map(&:to_i)
 end
 
 d3 = ListNode.new(3, nil)
