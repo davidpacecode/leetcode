@@ -2,9 +2,8 @@
 
 def three_sum(nums)
   net_zeroes = []
-  nums.permutation(3) do |perm|
-    net_zeroes << perm if perm.sum == 0 && !net_zeroes.include?(perm) && perm[0].index(0) != perm[1].index(0) && 
-      perm[1].index(0) != perm[2].index(0) && perm[0].index(0) != perm[2].index(0)
+  nums.combination(3) do |perm|
+    net_zeroes << perm if perm.sum == 0 && !net_zeroes.include?(perm)
   end
   net_zeroes
 end
